@@ -4,6 +4,17 @@
 #
 
 #
+# fixing apt sources
+#
+
+rm /etc/apt/sources.list
+echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
+
+echo "deb http://download.opensuse.org/repositories/home:/strycore/Debian_10/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
+wget -q https://download.opensuse.org/repositories/home:/strycore/Debian_10/Release.key -O- | sudo apt-key add -
+
+
+#
 # Making sure my favorite "pentools" directory is under root
 #
 
