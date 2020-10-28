@@ -34,9 +34,9 @@ fi
 
 echo -e "\n Installing some useful tools\n"
 
-apt update -y > /dev/null
-apt upgrade -y > /dev/null
-apt install man sharutils pv htop python3-pip less zip grep ssh whowatch sslsplit dsniff v4l2loopback-dkms v4l2loopback-source v4l2loopback-utils libaa-bin ffmpeg espeak screenfetch make cmake wireshark metasploit-framework python python2 aircrack-ng apache2 apt arp-scan bc beef-xss binwalk bluelog blueman bluesnarfer bluetooth nano git sqlmap mdk3 nikto nmap whatweb wpscan dirb hashcat hydra pwgen responder driftnet macchanger mitmproxy weevely proxychains4 tor hexchat simplescreenrecorder electrum whois -y > /dev/null
+apt update -y
+apt upgrade -y
+apt install man sharutils pv htop python3-pip less zip grep ssh whowatch sslsplit dsniff v4l2loopback-dkms v4l2loopback-source v4l2loopback-utils libaa-bin ffmpeg espeak screenfetch make cmake wireshark metasploit-framework python python2 aircrack-ng apache2 apt arp-scan bc beef-xss binwalk bluelog blueman bluesnarfer bluetooth nano git sqlmap mdk3 nikto nmap whatweb wpscan dirb hashcat hydra pwgen responder driftnet macchanger mitmproxy weevely proxychains4 tor hexchat simplescreenrecorder electrum whois -y
 
  if [ ! $? -eq 0 ]; then
     echo -e " Installation messed up...\n"
