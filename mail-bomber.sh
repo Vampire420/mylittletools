@@ -42,7 +42,7 @@ echo -e "$light_blue" && cat << "BANNER"
    ; ;  ; ;  ;  '        ; ,'    ;  ;
    `;'  ; ;  '; ;,       ; ;      ; ',
         ;  ;,  ;,;       ;  ;,     ;;;
-         ;,,;             ;,,;
+         ;,,;             ;,,;  v.0.1
 
 BANNER
 echo -e "			"$light_grey"Author$light_red :$on_green W1ckedW0LF $nc\n"
@@ -108,6 +108,18 @@ read -e -p "$(echo -e "$white"Enter the number of requests$light_red : $light_gr
 echo -e "\n"$white"["$yellow"INFO"$white"]$light_grey Targeting "$light_blue"'$target'$light_grey with subject "$light_blue"'$sub'$light_grey and message $light_blue'$mess'$nc\n\n"
 
 ## ATTACK
+
+## CHECKING THE TARGET HOST
+
+host=`echo "$target" | sed 's/^.*@/xxx /' | awk '{print $2}' `
+wget -q --spider http://$host
+
+if [ ! $? -eq 0 ]; then
+
+ echo -e " $error Unknown host! $nc\n"
+ exit 1
+
+fi
 
 nums=0
 
