@@ -36,7 +36,7 @@ echo -e "\n Installing some useful tools\n"
 
 apt update -y
 apt upgrade -y
-apt install man sharutils pv htop python3-pip less zip grep ssh whowatch sslsplit dsniff v4l2loopback-dkms v4l2loopback-source v4l2loopback-utils libaa-bin ffmpeg espeak screenfetch make cmake wireshark metasploit-framework python python2 aircrack-ng apache2 apt arp-scan bc beef-xss binwalk bluelog blueman bluesnarfer bluetooth nano git sqlmap mdk3 nikto nmap whatweb wpscan dirb hashcat hydra pwgen responder driftnet macchanger mitmproxy weevely proxychains4 tor hexchat simplescreenrecorder electrum whois -y
+apt install man sharutils pv htop python3-pip less x11vnc zip grep ssh whowatch sslsplit dsniff v4l2loopback-dkms v4l2loopback-source v4l2loopback-utils libaa-bin ffmpeg espeak screenfetch make cmake wireshark metasploit-framework python python2 aircrack-ng apache2 apt arp-scan bc beef-xss binwalk bluelog blueman bluesnarfer bluetooth nano git sqlmap mdk3 nikto nmap whatweb wpscan dirb hashcat hydra pwgen responder driftnet macchanger mitmproxy weevely proxychains4 tor hexchat simplescreenrecorder electrum whois -y
 
  if [ ! $? -eq 0 ]; then
     echo -e " Installation messed up...\n"
@@ -66,8 +66,6 @@ chmod 755 *
 
 echo " All done!"
 
-clear
-
 
 #
 # VNC setup
@@ -84,16 +82,11 @@ apt clean
 mkdir /root/pentools/vnc_files
 cd /root/pentools/vnc_files/
 
-wget https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.7.2-Linux-x64.deb
-dpkg -i VNC-Server-6.7.2-Linux-x64.deb
-systemctl enable vncserver-virtuald.service
 wget https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.20.529-Linux-x64.deb
 dpkg -i VNC-Viewer-6.20.529-Linux-x64.deb
 apt install -f > /dev/null
 
 echo "VNC configuration is done"
-
-clear
 
 
 #
@@ -144,10 +137,9 @@ printf " Linking the 'sshnuke'...	: "
 ln -rs sshnuke.sh /usr/bin/sshnuke
 sleep 0.25
 printf "Done"
-clear
 
 echo " All working..."
-clear
+
 
 
 #
@@ -174,10 +166,9 @@ else
   cp sshd_config /etc/ssh/
 
 fi
+systemctl enable ssh.service
 
 echo -e "\n SSH done...\n"
 
 echo -e "\n exiting program...\n"
 exit 0
-clear
-
